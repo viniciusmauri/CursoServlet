@@ -1,8 +1,8 @@
 package br.com.mvtech.gerenciador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +14,8 @@ public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	//Usar doPost para apenas ser aceito métodos especificado POST(doPost ou GET(doGet)
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nomeEmpresa = request.getParameter("nome");
 
 		Empresa empresa = new Empresa();
@@ -22,8 +23,11 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>Empresa "  + nomeEmpresa +  " cadastrada com sucesso!!</body></html>");
+
+		//Chamada do JSP
+		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		request.setAttribute("empresa", empresa.getNome());
+		rd.forward(request, response);
 	}
 
 }

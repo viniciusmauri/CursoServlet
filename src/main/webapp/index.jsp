@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Curso Alura Servlet</title>
 </head>
@@ -14,7 +14,7 @@
 </br>
 <a href="novo-teste-servlet">Novo Teste Servlet</a>
 </br>
-<a href="novaEmpresa"> Nova Empresa</a>
+<a href="formNovaEmpresa.html"> Nova Empresa</a>
 </br>
 <a href="listaEmpresas"> Lista de Empresas</a>
 </body>
