@@ -14,7 +14,7 @@
 </br>
 <a href="novo-teste-servlet">Novo Teste Servlet</a>
 </br>
-<a href="formNovaEmpresa.html"> Nova Empresa</a>
+<a href="formNovaEmpresa.jsp"> Nova Empresa</a>
 </br>
 <a href="listaEmpresas"> Lista de Empresas</a>
 </body>
