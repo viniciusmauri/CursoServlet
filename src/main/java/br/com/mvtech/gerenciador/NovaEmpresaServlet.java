@@ -18,7 +18,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 	//Usar doPost para apenas ser aceito métodos especificado POST(doPost ou GET(doGet)
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Date dataAbertura = null;
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataEmpresa  = request.getParameter("data");
@@ -37,10 +37,12 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 
-		//Chamada do JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
-		request.setAttribute("empresa", empresa.getNome());
-		rd.forward(request, response);
+		response.sendRedirect("listaEmpresas");
+
+//		//Chamada do JSP
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
+//		request.setAttribute("empresa", empresa.getNome());
+//		rd.forward(request, response);
 	}
 
 }

@@ -9,13 +9,19 @@
     <title>Lista de Empresas</title>
 </head>
 <body>
-    Lista de empresas: <br/>
 
-    <ul>
-        <c:forEach items="${empresas}" var="empresa">
+<c:if test="${not empty empresa}">
+    Empresa ${ empresa } cadastrada com sucesso!!
+</c:if>
+<br/>
+
+Lista de empresas: <br/>
+
+<ul>
+    <c:forEach items="${empresas}" var="empresa">
 
         <li>${empresa.nome} -  <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/></li>
-        </c:forEach>
-    </ul>
+    </c:forEach>
+</ul>
 </body>
 </html>
